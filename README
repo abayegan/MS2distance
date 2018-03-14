@@ -1,0 +1,41 @@
+Amir Bayegan, Peter Clote -- Boston College
+
+*******************************************************************************
+Running MS2distance programs requires installation of Gurobi and networkx
+packages on python 2.7 or later. 
+
+Please follow this link to install networkx:
+https://networkx.github.io/documentation/networkx-1.1/install.html
+
+Please follow this link to install Gurobi:
+http://www.gurobi.com/documentation/
+
+*******************************************************************************
+The python executable in this directory:
+
+	ms2distance.py: Computes the optimal ms2distance described in the
+				   journal article. try ./ms2distance.py -h for help.
+
+	Usage:%s -i inputFile [Options]
+	
+		-i <string>: Input file containing the initial structure in the first and the target structure in the second line. RNA sequence in line 3 is optional.
+					 NOTE: The user is responsible for checking the Watson-Crick compatibility of base paring for the given sequence(if any).  If the given initial and target structures are watson-crick then intermediate structures would satisfy watson-crick, as well. However, the program is not limitted to watson-crick.
+		Options:
+		
+		-pk  			Allow formation of psuedoknots
+		-nopt			Near-optimal algorithm
+		-o <string>	 	Prefix for the output names. Defualt is the input prefix.
+		-k <int> 		Threshold for locality of shift moves
+		-h  			Print help
+		
+		output:	
+				1) MS2 path is printed in the standard output.
+				2) dot file of the conflict digraph
+					   
+Example:
+	./ms2distance.py -i Lcollosoma.in -o Lcollosoma > Lcollosoma.path
+
+*******************************************************************************	
+
+
+
